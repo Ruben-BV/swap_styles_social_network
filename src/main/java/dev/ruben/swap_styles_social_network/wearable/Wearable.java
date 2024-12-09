@@ -43,18 +43,22 @@ public class Wearable {
 
 
 
-    public Wearable(Long wearableId, WearableType wearableType, String wearableName, String wearableDescription,
-            boolean visibility, List<String> photosList, Wardrobe wardrobe) {
+    public Wearable(Long wearableId, Wardrobe wardrobe, WearableType wearableType, String wearableName, String wearableDescription,
+            boolean visibility, List<String> photosList) {
         this.wearableId = wearableId;
+        this.wardrobe = wardrobe;
         this.wearableType = wearableType;
         this.wearableName = wearableName;
         this.wearableDescription = wearableDescription;
         this.visibility = visibility;
         this.photosList = photosList;
-        this.wardrobe = wardrobe;
     }
 
     public Wearable() {
+    }
+
+    public WearableDTO toDTO() {
+        return new WearableDTO(this);
     }
 
     public Long getWearableId() {
