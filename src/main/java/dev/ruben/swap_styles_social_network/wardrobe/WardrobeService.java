@@ -28,7 +28,7 @@ public class WardrobeService {
             Wardrobe wardrobe = new Wardrobe(wardrobeDTO.getWardrobeId(), user, wardrobeDTO.getWardrobeName(), wardrobeDTO.getWearables());
             return new WardrobeDTO(wardrobeRepository.save(wardrobe));
         }else{
-            throw new RuntimeException("User not found with wardrobeId: " + wardrobeDTO.getUserId() + ". Status: " + HttpStatus.NOT_FOUND);
+            throw new RuntimeException("User not found with userId: " + wardrobeDTO.getUserId() + ". Status: " + HttpStatus.NOT_FOUND);
         }
                 
     }
@@ -64,8 +64,8 @@ public class WardrobeService {
     }
 
     public void deleteWardrobeById(Long wardrobeId){
-        Wardrobe device = wardrobeRepository.findById(wardrobeId).orElse(null);
-        if(device!=null){
+        Wardrobe wardrobe = wardrobeRepository.findById(wardrobeId).orElse(null);
+        if(wardrobe!=null){
             wardrobeRepository.deleteById(wardrobeId);
         }else{
             throw new RuntimeException("Wardrobe not found with wardrobeId: " + wardrobeId + ". Status: " + HttpStatus.NOT_FOUND);
