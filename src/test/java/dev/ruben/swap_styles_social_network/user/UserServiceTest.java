@@ -46,7 +46,7 @@ public class UserServiceTest {
 
         assertNotNull(createdUser);
         assertEquals(mockUser.getUserId(), createdUser.getUserId());
-        assertEquals(mockUser.getName(), createdUser.getName());
+        assertEquals(mockUser.getUserName(), createdUser.getUserName());
 
     }
 
@@ -97,7 +97,7 @@ public class UserServiceTest {
         assertNotNull(result);
         assertEquals(1L, result.getUserId());
         assertEquals("USER", result.getUserType());
-        assertEquals("Lisa", result.getName());
+        assertEquals("Lisa", result.getUserName());
         assertEquals("lisa@mail.com", result.getEmailAddress());
         assertEquals("Profile Image", result.getProfileImage());
 
@@ -129,7 +129,7 @@ public class UserServiceTest {
         assertNotNull(result);
         assertEquals(1L, result.getUserId());
         assertEquals("USER", result.getUserType());
-        assertEquals("Lisa", result.getName());
+        assertEquals("Lisa", result.getUserName());
         assertEquals("lisa@mail.com", result.getEmailAddress());
         assertEquals("Profile Image", result.getProfileImage());
         

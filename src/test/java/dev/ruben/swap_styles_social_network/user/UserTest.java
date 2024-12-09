@@ -28,7 +28,7 @@ public class UserTest {
         assertNotNull(user);
         assertEquals(userId, user.getUserId());
         assertEquals(userType, user.getUserType());
-        assertEquals(name, user.getName());
+        assertEquals(name, user.getUserName());
         assertEquals(emailAddress, user.getEmailAddress());
         assertEquals(profileImage, user.getProfileImage());
     }
@@ -39,7 +39,7 @@ public class UserTest {
         
         assertNull(user.getUserId());
         assertNull(user.getUserType());
-        assertNull(user.getName());
+        assertNull(user.getUserName());
         assertNull(user.getEmailAddress());
         assertNull(user.getProfileImage());
     }
@@ -62,8 +62,8 @@ public class UserTest {
 
     @Test
     void testSetAndGetUserName() {
-        testUser.setName("Jhon");
-        String result = testUser.getName();
+        testUser.setUserName("Jhon");
+        String result = testUser.getUserName();
 
         assertEquals("Jhon", result);
     }

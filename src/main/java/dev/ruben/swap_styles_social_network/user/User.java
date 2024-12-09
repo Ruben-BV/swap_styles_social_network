@@ -22,7 +22,7 @@ public class User {
     @Column(nullable = false)
     private String userType;
     @Column(nullable = false)
-    private String name;
+    private String userName;
     @Column(nullable = false)
     private String emailAddress;
     @Column(nullable = false)
@@ -33,10 +33,10 @@ public class User {
     private List<Wardrobe> wardrobes;
     
     
-    public User(Long userId, String userType, String name, String emailAddress, String profileImage) {
+    public User(Long userId, String userType, String userName, String emailAddress, String profileImage) {
         this.userId = userId;
         this.userType = userType;
-        this.name = name;
+        this.userName = userName;
         this.emailAddress = emailAddress;
         this.profileImage = profileImage;
     }
@@ -66,13 +66,13 @@ public class User {
     }
 
 
-    public String getName() {
-        return name;
+    public String getUserName() {
+        return userName;
     }
 
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
 
