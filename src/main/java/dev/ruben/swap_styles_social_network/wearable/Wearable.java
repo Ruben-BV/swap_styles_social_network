@@ -107,12 +107,12 @@ public class Wearable {
     }
 
 
-    public List<String> getFotosList() {
+    public List<String> getPhotosList() {
         return photosList;
     }
 
 
-    public void setFotosList(List<String> photosList) {
+    public void setPhotosList(List<String> photosList) {
         this.photosList = photosList;
     }
 
