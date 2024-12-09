@@ -16,7 +16,14 @@ public class UserService {
     }
 
     public User createUser(User user){
-            return userRepository.save(user);
+        List<User> users = userRepository.findAll();
+
+        for (User testUser : users) {
+            if (testUser.getEmailAddress().equalsIgnoreCase(user.getEmailAddress())) {
+                throw new IllegalArgumentException("Incorrect email address.");
+            }
+        }
+        return userRepository.save(user);
     }
 
     public List<User> getAllUsers(){
@@ -28,6 +35,8 @@ public class UserService {
     }
 
     public User getUserByEmail(String emailAddress){
+        
+        
         List<User> users = userRepository.findAll();
 
         for (User user : users) {
@@ -45,7 +54,7 @@ public class UserService {
 
         User existingEmail = getUserByEmail(emailAddressToProve);
 
-        if (existingEmail != null && existingEmail.getId() != user.getId()) {
+        if (existingEmail != null && existingEmail.getUserId() != user.getUserId()) {
             throw new IllegalArgumentException("Incorrect email address.");
         }
 
