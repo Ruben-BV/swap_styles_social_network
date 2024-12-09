@@ -1,11 +1,16 @@
 package dev.ruben.swap_styles_social_network.user;
 
 
+import java.util.List;
+
+import dev.ruben.swap_styles_social_network.wardrobe.Wardrobe;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -23,10 +28,9 @@ public class User {
     @Column(nullable = false)
     private String profilImage;
 
-    // @OneToMany
-    // (mappedBy = "userId", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    // @JsonManagedReference
-    // private List<Wardrobe> wardrobes;
+    @OneToMany
+    (mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Wardrobe> wardrobes;
     
     
     public User(Long userId, String userType, String name, String emailAddress, String profilImage) {
@@ -42,12 +46,12 @@ public class User {
     }
 
 
-    public Long getId() {
+    public Long getUserId() {
         return userId;
     }
 
 
-    public void setId(Long userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 
@@ -91,4 +95,5 @@ public class User {
         this.profilImage = profilImage;
     }
 
+    
 }
