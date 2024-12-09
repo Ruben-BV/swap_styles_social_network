@@ -42,7 +42,7 @@ public class WardrobeController {
         return new ResponseEntity<>(wardrobeService.getWardrobeById(wardrobeId), HttpStatus.OK);
     }
 
-    @PutMapping(path = "/user/update_wardrobe_by_id/{wardrobeId}")
+    @PutMapping(path = "/user/updateWardrobeById/{wardrobeId}")
     public ResponseEntity<WardrobeDTO> updateUserById(@PathVariable Long wardrobeId, @RequestBody WardrobeDTO updatedWardrobe) {
     
         Optional<WardrobeDTO> existingWardrobe = wardrobeService.getWardrobeById(wardrobeId);
@@ -54,7 +54,7 @@ public class WardrobeController {
         return ResponseEntity.ok(wardrobeService.modifyWardrobeById(wardrobeId, updatedWardrobe));
     }
 
-    @DeleteMapping(path = "/user/delete_wardrobe_by_id/{wardrobeId}")
+    @DeleteMapping(path = "/user/wardrobe/delete/{wardrobeId}")
     public ResponseEntity<Void> deleteWardrobeById(@PathVariable Long wardrobeId) {
         wardrobeService.deleteWardrobeById(wardrobeId);
         return ResponseEntity.noContent().build();
