@@ -26,19 +26,19 @@ public class User {
     @Column(nullable = false)
     private String emailAddress;
     @Column(nullable = false)
-    private String profilImage;
+    private String profileImage;
 
     @OneToMany
     (mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Wardrobe> wardrobes;
     
     
-    public User(Long userId, String userType, String name, String emailAddress, String profilImage) {
+    public User(Long userId, String userType, String name, String emailAddress, String profileImage) {
         this.userId = userId;
         this.userType = userType;
         this.name = name;
         this.emailAddress = emailAddress;
-        this.profilImage = profilImage;
+        this.profileImage = profileImage;
     }
 
 
@@ -86,13 +86,13 @@ public class User {
     }
 
 
-    public String getProfilImage() {
-        return profilImage;
+    public String getProfileImage() {
+        return profileImage;
     }
 
 
-    public void setProfilImage(String profilImage) {
-        this.profilImage = profilImage;
+    public void setProfileImage(String profileImage) {
+        this.profileImage = profileImage;
     }
 
     
