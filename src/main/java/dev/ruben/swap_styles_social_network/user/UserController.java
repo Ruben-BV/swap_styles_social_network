@@ -25,22 +25,22 @@ public class UserController {
         return new ResponseEntity<>(userService.createUser(user), HttpStatus.CREATED);
     }
 
-    @GetMapping(path = "/admin")
+    @GetMapping(path = "/admin/getAllUsers")
     public List<User> getAllUsers() {
         return userService.getAllUsers();
     }
 
-    @GetMapping(path = "/admin/find_user_by_id/{user_id}")
+    @GetMapping(path = "/admin/findUserById/{userId}")
     public User getUserById(@PathVariable Long userId) {
         return userService.getUserById(userId);
     }
 
-    @GetMapping(path = "/admin/find_user_by_email/{emailAddress}")
+    @GetMapping(path = "/admin/findUserByEmail/{emailAddress}")
     public User getUserByEmail(@PathVariable String emailAddress) {
         return userService.getUserByEmail(emailAddress);
     }
 
-    @PutMapping(path = "/user/update_user/{user_id}")
+    @PutMapping(path = "/user/updateUser/{userId}")
     public ResponseEntity<User> updateUserById(@PathVariable Long userId, @RequestBody User updatedUser) {
     
         User existingUser = userService.getUserById(userId);
@@ -56,7 +56,7 @@ public class UserController {
         return ResponseEntity.ok(userService.updateUser(existingUser));
     }
 
-    @DeleteMapping(path = "/user/delete_user/{user_id}")
+    @DeleteMapping(path = "/user/delete/{userId}")
     public ResponseEntity<Void> deleteUserById(@PathVariable Long userId) {
         userService.deleteUserById(userId);
         return ResponseEntity.noContent().build();
