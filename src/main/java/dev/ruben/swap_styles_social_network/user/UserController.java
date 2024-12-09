@@ -49,9 +49,9 @@ public class UserController {
             return ResponseEntity.notFound().build();
         }
 
-        existingUser.setName(updatedUser.getName());
+        existingUser.setUserName(updatedUser.getUserName());
         existingUser.setEmailAddress(updatedUser.getEmailAddress());
-        existingUser.setProfilImage(updatedUser.getProfilImage());
+        existingUser.setProfileImage(updatedUser.getProfileImage());
 
         return ResponseEntity.ok(userService.updateUser(existingUser));
     }
