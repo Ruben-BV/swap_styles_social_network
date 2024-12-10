@@ -134,14 +134,21 @@ public class Wearable {
 }
 
 enum WearableType {
-    ACCESSORIES,
-    FOOTWEAR,
-    COAT,
-    JACKET,
-    SWEATER,
-    T_SHIRT,
-    SKIRT,
-    PANTS,
-    DRESS,
-    COSTUME;
+    ACCESSORIES (0),
+    FOOTWEAR (1),
+    COAT (2),
+    JACKET (3),
+    SWEATER (4),
+    T_SHIRT (5),
+    SKIRT (6),
+    PANTS (7),
+    DRESS (8),
+    COSTUME (9);
+    private int value;
+
+    WearableType(int value) {
+        this.value = value;
+    }
+
+    
 }
