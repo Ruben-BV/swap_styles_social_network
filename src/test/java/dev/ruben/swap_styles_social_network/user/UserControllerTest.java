@@ -3,11 +3,14 @@ package dev.ruben.swap_styles_social_network.user;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
+import org.springframework.http.MediaType;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
@@ -18,6 +21,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import java.util.Arrays;
 import java.util.List;
+
 
 public class UserControllerTest {
     
@@ -124,6 +128,60 @@ public class UserControllerTest {
                 .andExpect(MockMvcResultMatchers.jsonPath("$.profileImage").value("Profile Image"));
     }
 
+    @Test
+    public void testUpdateUserById_userFound() throws Exception {
+        User existingUser = new User();
+        existingUser.setUserId(2L);
+        existingUser.setUserType("USER");
+        existingUser.setUserName("Mario");
+        existingUser.setEmailAddress("mario@email.com");
+        existingUser.setProfileImage("Profile Image");
+
+        User updatedUser = new User();
+        updatedUser.setUserName("Mario Ways");
+        updatedUser.setEmailAddress("mario_ways@email.com");
+        updatedUser.setProfileImage("Profile Image");
+
+        when(userService.getUserById(2L)).thenReturn(existingUser);
+        when(userService.updateUser(any(User.class))).thenReturn(existingUser);
+
+        mockMvc.perform(put("/user/updateUser/{userId}", 2L)
+                        .contentType("application/json")
+                        .content(new ObjectMapper().writeValueAsString(updatedUser)))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.userId").value(2L))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.userType").value("USER"))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.userName").value("Mario Ways"))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.emailAddress").value("mario_ways@email.com"))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.profileImage").value("Profile Image"));
+    }
+
+    @Test
+    public void testUpdateUserById_UserNotFound() throws Exception {
+        User existingUser = new User();
+        existingUser.setUserId(2L);
+        existingUser.setUserType("USER");
+        existingUser.setUserName("Mario");
+        existingUser.setEmailAddress("mario@email.com");
+        existingUser.setProfileImage("Profile Image");
+
+        User updatedUser = new User();
+        updatedUser.setUserName("Mario Ways");
+        updatedUser.setEmailAddress("mario_ways@email.com");
+        updatedUser.setProfileImage("Profile Image");
+
+        when(userService.getUserById(1L)).thenReturn(null);
+
+        
+        mockMvc.perform(put("/user/updateUser/{userId}", 1L)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(new ObjectMapper().writeValueAsString(updatedUser)))
+                .andExpect(status().isNotFound());
+
+        verify(userService, times(1)).getUserById(1L);
+        verify(userService, never()).updateUser(any(User.class));
+    }
+    
     @Test
     public void testDeleteUserById() throws Exception {
         doNothing().when(userService).deleteUserById(anyLong());
