@@ -17,7 +17,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import dev.ruben.swap_styles_social_network.user.User;
 import dev.ruben.swap_styles_social_network.user.UserRepository;
-import dev.ruben.swap_styles_social_network.user.UserService;
 import dev.ruben.swap_styles_social_network.wearable.Wearable;
 
 @ExtendWith(MockitoExtension.class)

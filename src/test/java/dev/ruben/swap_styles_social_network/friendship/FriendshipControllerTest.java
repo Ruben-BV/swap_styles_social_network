@@ -14,10 +14,6 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import dev.ruben.swap_styles_social_network.user.User;
-import dev.ruben.swap_styles_social_network.wardrobe.Wardrobe;
-import dev.ruben.swap_styles_social_network.wardrobe.WardrobeController;
-import dev.ruben.swap_styles_social_network.wardrobe.WardrobeDTO;
-import dev.ruben.swap_styles_social_network.wardrobe.WardrobeService;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
