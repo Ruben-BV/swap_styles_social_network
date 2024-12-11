@@ -17,7 +17,10 @@ public class UserService {
 
     public User createUser(User user){
         List<User> users = userRepository.findAll();
-
+        String userType = user.getUserType();
+        if (userType.equalsIgnoreCase("ADMIN")) {
+            throw new IllegalArgumentException("Incorrect user type.");
+        }
         for (User testUser : users) {
             if (testUser.getEmailAddress().equalsIgnoreCase(user.getEmailAddress())) {
                 throw new IllegalArgumentException("Incorrect email address.");
