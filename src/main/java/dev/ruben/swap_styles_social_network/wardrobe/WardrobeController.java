@@ -32,17 +32,17 @@ public class WardrobeController {
         return new ResponseEntity<>(wardrobeService.getAllWardrobes(), HttpStatus.OK);
     }
 
-    @GetMapping(path = "user/wardrobe/getWardrobesByUserId/{userId}")
+    @GetMapping(path = "user/wardrobe/getAllFromByUserId/{userId}")
     public List<WardrobeDTO> getWardorbesByUserId(@PathVariable Long userId) {
         return wardrobeService.getWardrobesByUserId(userId);
     }
     
-    @GetMapping(path = "user/{wardrobeId}")
+    @GetMapping(path = "user/wardrobe/getById/{wardrobeId}")
     public ResponseEntity<Optional<WardrobeDTO>> getWardorbeById(@PathVariable Long wardrobeId) {
         return new ResponseEntity<>(wardrobeService.getWardrobeById(wardrobeId), HttpStatus.OK);
     }
 
-    @PutMapping(path = "/user/updateWardrobeById/{wardrobeId}")
+    @PutMapping(path = "/user/wardrobe/updateById/{wardrobeId}")
     public ResponseEntity<WardrobeDTO> updateUserById(@PathVariable Long wardrobeId, @RequestBody WardrobeDTO updatedWardrobe) {
     
         Optional<WardrobeDTO> existingWardrobe = wardrobeService.getWardrobeById(wardrobeId);
