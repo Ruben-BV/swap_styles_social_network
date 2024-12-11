@@ -19,32 +19,32 @@ public class WearableController {
     @Autowired
     WearableService wearableService;
 
-    @PostMapping(path = "user/wearable/create")
+    @PostMapping(path = "/user/wearable/create")
     public ResponseEntity<WearableDTO> createWearable(@RequestBody WearableDTO wearableDTO){
         return new ResponseEntity<>(wearableService.createWearable(wearableDTO), HttpStatus.CREATED);
     }
 
-    @GetMapping(path = "admin/wearable/getAll")
+    @GetMapping(path = "/admin/wearable/getAll")
     public ResponseEntity<List<WearableDTO>> getAllWeartables() {
         return new ResponseEntity<>(wearableService.getAllWearables(), HttpStatus.OK);
     }
 
-    @GetMapping(path = "user/wearable/getWearableById/{wearableId}")
+    @GetMapping(path = "/user/wearable/getWearableById/{wearableId}")
     public WearableDTO getWearableById(@PathVariable Long wearableId) {
         return wearableService.getWearableById(wearableId);
     }
 
-    @GetMapping(path = "user/wearable/getAllWearablesByUserId/{userId}")
+    @GetMapping(path = "/user/wearable/getAllWearablesByUserId/{userId}")
     public List<WearableDTO> getAllWearablesByUserId(@PathVariable Long userId) {
         return wearableService.getAllWearablesByUserId(userId);
     }
 
-    @GetMapping(path = "user/wearable/getVisibleWearablesByUserId/{userId}")
+    @GetMapping(path = "/user/wearable/getVisibleWearablesByUserId/{userId}")
     public List<WearableDTO> getVisibleWearablesByUserId(@PathVariable Long userId) {
         return wearableService.getVisibleWearablesByUserId(userId);
     }
 
-    @PutMapping(path = "user/wearable/modifyWearableById/{wearableId}")
+    @PutMapping(path = "/user/wearable/modifyWearableById/{wearableId}")
     public WearableDTO modifyWearableById(@PathVariable Long wearableId, @RequestBody WearableDTO wearableDTO) {
         return wearableService.modifyWearableById(wearableId, wearableDTO);
     }

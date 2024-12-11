@@ -19,32 +19,32 @@ public class FriendshipController {
     @Autowired
     FriendshipService friendshipService;
 
-    @PostMapping(path = "user/friendship/request")
+    @PostMapping(path = "/user/friendship/request")
     public ResponseEntity<FriendshipDTO> createFriendshipRequest(@RequestBody FriendshipDTO friendshipDTO){
         return new ResponseEntity<>(friendshipService.createFriendshipRequest(friendshipDTO), HttpStatus.CREATED);
     }
 
-    @PutMapping(path = "user/friendship/acceptFriendshipRequest/{friendshipId}")
+    @PutMapping(path = "/user/friendship/acceptFriendshipRequest/{friendshipId}")
     public ResponseEntity<FriendshipDTO> acceptFriendshipRequest(@PathVariable Long friendshipId){
         return ResponseEntity.ok(friendshipService.acceptFriendshipRequest(friendshipId));
     }
 
-    @PutMapping(path = "user/friendship/rejectFriendshipRequest/{friendshipId}")
+    @PutMapping(path = "/user/friendship/rejectFriendshipRequest/{friendshipId}")
     public ResponseEntity<FriendshipDTO> rejectFriendshipRequest(@PathVariable Long friendshipId){
         return ResponseEntity.ok(friendshipService.rejectFriendshipRequest(friendshipId));
     }
 
-    @GetMapping(path = "admin/friendship/getAllFriendships")
+    @GetMapping(path = "/admin/friendship/getAllFriendships")
     public ResponseEntity<List<FriendshipDTO>> getAllFriendships() {
         return new ResponseEntity<>(friendshipService.getAllFriendships(), HttpStatus.OK);
     }
 
-    @GetMapping(path = "admin/friendship/getFriendshipById/{friendshipId}")
+    @GetMapping(path = "/admin/friendship/getFriendshipById/{friendshipId}")
     public Optional<FriendshipDTO> getFriendshipById(@PathVariable Long friendshipId) {
         return friendshipService.getFriendshipById(friendshipId);
     }
 
-    @GetMapping(path = "user/wardrobe/getFriendshipsByUserId/{userId}")
+    @GetMapping(path = "/user/wardrobe/getFriendshipsByUserId/{userId}")
     public List<FriendshipDTO> getWardorbesByUserId(@PathVariable Long userId) {
         return friendshipService.getFriendshipsByUserId(userId);
     }

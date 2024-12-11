@@ -22,22 +22,22 @@ public class WardrobeController {
     @Autowired
     WardrobeService wardrobeService;
 
-    @PostMapping(path = "user/wardrobe/create")
+    @PostMapping(path = "/user/wardrobe/create")
     public ResponseEntity<WardrobeDTO> createWardrobe(@RequestBody WardrobeDTO wardrobeDTO){
         return new ResponseEntity<>(wardrobeService.createWardrobe(wardrobeDTO), HttpStatus.CREATED);
     }
 
-    @GetMapping(path = "admin/wardrobe/getAll")
+    @GetMapping(path = "/admin/wardrobe/getAll")
     public ResponseEntity<List<WardrobeDTO>> getAllWardrobes() {
         return new ResponseEntity<>(wardrobeService.getAllWardrobes(), HttpStatus.OK);
     }
 
-    @GetMapping(path = "user/wardrobe/getAllFromByUserId/{userId}")
+    @GetMapping(path = "/user/wardrobe/getAllFromByUserId/{userId}")
     public List<WardrobeDTO> getWardorbesByUserId(@PathVariable Long userId) {
         return wardrobeService.getWardrobesByUserId(userId);
     }
     
-    @GetMapping(path = "user/wardrobe/getById/{wardrobeId}")
+    @GetMapping(path = "/user/wardrobe/getById/{wardrobeId}")
     public ResponseEntity<Optional<WardrobeDTO>> getWardorbeById(@PathVariable Long wardrobeId) {
         return new ResponseEntity<>(wardrobeService.getWardrobeById(wardrobeId), HttpStatus.OK);
     }
