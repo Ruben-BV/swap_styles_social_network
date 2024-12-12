@@ -20,7 +20,7 @@ public class UserController {
         this.userService = userService;
     }
 
-    @PostMapping(path = "/user/create")
+    @PostMapping(path = "/create")
     public ResponseEntity<User> createUser(@RequestBody User user){
         return new ResponseEntity<>(userService.createUser(user), HttpStatus.CREATED);
     }
@@ -40,7 +40,7 @@ public class UserController {
         return userService.getUserByEmail(emailAddress);
     }
 
-    @PutMapping(path = "/user/updateUser/{userId}")
+    @PutMapping(path = "/updateUser/{userId}")
     public ResponseEntity<User> updateUserById(@PathVariable Long userId, @RequestBody User updatedUser) {
     
         User existingUser = userService.getUserById(userId);
@@ -56,7 +56,7 @@ public class UserController {
         return ResponseEntity.ok(userService.updateUser(existingUser));
     }
 
-    @DeleteMapping(path = "/user/delete/{userId}")
+    @DeleteMapping(path = "/delete/{userId}")
     public ResponseEntity<Void> deleteUserById(@PathVariable Long userId) {
         userService.deleteUserById(userId);
         return ResponseEntity.noContent().build();

@@ -19,7 +19,7 @@ public class WearableController {
     @Autowired
     WearableService wearableService;
 
-    @PostMapping(path = "/user/wearable/create")
+    @PostMapping(path = "/wearable/create")
     public ResponseEntity<WearableDTO> createWearable(@RequestBody WearableDTO wearableDTO){
         return new ResponseEntity<>(wearableService.createWearable(wearableDTO), HttpStatus.CREATED);
     }
@@ -29,27 +29,27 @@ public class WearableController {
         return new ResponseEntity<>(wearableService.getAllWearables(), HttpStatus.OK);
     }
 
-    @GetMapping(path = "/user/wearable/getWearableById/{wearableId}")
+    @GetMapping(path = "/wearable/getWearableById/{wearableId}")
     public WearableDTO getWearableById(@PathVariable Long wearableId) {
         return wearableService.getWearableById(wearableId);
     }
 
-    @GetMapping(path = "/user/wearable/getAllWearablesByUserId/{userId}")
+    @GetMapping(path = "/wearable/getAllWearablesByUserId/{userId}")
     public List<WearableDTO> getAllWearablesByUserId(@PathVariable Long userId) {
         return wearableService.getAllWearablesByUserId(userId);
     }
 
-    @GetMapping(path = "/user/wearable/getVisibleWearablesByUserId/{userId}")
+    @GetMapping(path = "/wearable/getVisibleWearablesByUserId/{userId}")
     public List<WearableDTO> getVisibleWearablesByUserId(@PathVariable Long userId) {
         return wearableService.getVisibleWearablesByUserId(userId);
     }
 
-    @PutMapping(path = "/user/wearable/modifyWearableById/{wearableId}")
+    @PutMapping(path = "/wearable/modifyWearableById/{wearableId}")
     public WearableDTO modifyWearableById(@PathVariable Long wearableId, @RequestBody WearableDTO wearableDTO) {
         return wearableService.modifyWearableById(wearableId, wearableDTO);
     }
 
-    @DeleteMapping(path = "/user/wearable/delete/{wearableId}")
+    @DeleteMapping(path = "/wearable/delete/{wearableId}")
     public ResponseEntity<Void> deleteWearableById(@PathVariable Long wearableId) {
         wearableService.deleteWearableById(wearableId);
         return ResponseEntity.noContent().build();

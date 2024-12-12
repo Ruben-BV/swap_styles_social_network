@@ -44,7 +44,7 @@ public class FriendshipControllerTest {
         FriendshipDTO savedFriendshipDTO = new FriendshipDTO();
 
         when(friendshipService.createFriendshipRequest(any(FriendshipDTO.class))).thenReturn(savedFriendshipDTO);
-        mockMvc.perform(post("/user/friendship/request")
+        mockMvc.perform(post("/friendship/request")
                         .contentType("application/json")
                         .content(new ObjectMapper().writeValueAsString(friendship)))
                 .andExpect(status().isCreated());
@@ -114,7 +114,7 @@ public class FriendshipControllerTest {
 
         when(friendshipService.getFriendshipsByUserId(2L)).thenReturn(friendships);
 
-        mockMvc.perform(get("/user/wardrobe/getFriendshipsByUserId/{userId}", user1.getUserId())
+        mockMvc.perform(get("/wardrobe/getFriendshipsByUserId/{userId}", user1.getUserId())
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
                 
@@ -123,7 +123,7 @@ public class FriendshipControllerTest {
     @Test
     public void testDeleteFriendshipById() throws Exception {
         doNothing().when(friendshipService).deleteFriendshipById(anyLong());
-        mockMvc.perform(delete("/user/friendship/delete/{friendshipId}", 1L))
+        mockMvc.perform(delete("/friendship/delete/{friendshipId}", 1L))
                 .andExpect(status().isNoContent());
 
     }

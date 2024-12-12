@@ -19,17 +19,17 @@ public class FriendshipController {
     @Autowired
     FriendshipService friendshipService;
 
-    @PostMapping(path = "/user/friendship/request")
+    @PostMapping(path = "/friendship/request")
     public ResponseEntity<FriendshipDTO> createFriendshipRequest(@RequestBody FriendshipDTO friendshipDTO){
         return new ResponseEntity<>(friendshipService.createFriendshipRequest(friendshipDTO), HttpStatus.CREATED);
     }
 
-    @PutMapping(path = "/user/friendship/acceptFriendshipRequest/{friendshipId}")
+    @PutMapping(path = "/friendship/acceptFriendshipRequest/{friendshipId}")
     public ResponseEntity<FriendshipDTO> acceptFriendshipRequest(@PathVariable Long friendshipId){
         return ResponseEntity.ok(friendshipService.acceptFriendshipRequest(friendshipId));
     }
 
-    @PutMapping(path = "/user/friendship/rejectFriendshipRequest/{friendshipId}")
+    @PutMapping(path = "/friendship/rejectFriendshipRequest/{friendshipId}")
     public ResponseEntity<FriendshipDTO> rejectFriendshipRequest(@PathVariable Long friendshipId){
         return ResponseEntity.ok(friendshipService.rejectFriendshipRequest(friendshipId));
     }
@@ -44,12 +44,12 @@ public class FriendshipController {
         return friendshipService.getFriendshipById(friendshipId);
     }
 
-    @GetMapping(path = "/user/wardrobe/getFriendshipsByUserId/{userId}")
+    @GetMapping(path = "/wardrobe/getFriendshipsByUserId/{userId}")
     public List<FriendshipDTO> getWardorbesByUserId(@PathVariable Long userId) {
         return friendshipService.getFriendshipsByUserId(userId);
     }
 
-    @DeleteMapping(path = "/user/friendship/delete/{friendshipId}")
+    @DeleteMapping(path = "/friendship/delete/{friendshipId}")
     public ResponseEntity<Void> deleteFriendshipById(@PathVariable Long friendshipId) {
         friendshipService.deleteFriendshipById(friendshipId);
         return ResponseEntity.noContent().build();

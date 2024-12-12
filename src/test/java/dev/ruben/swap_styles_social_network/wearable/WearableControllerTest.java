@@ -39,7 +39,7 @@ public class WearableControllerTest {
         WearableDTO savedWearableDTO = new WearableDTO();
 
         when(wearableService.createWearable(any(WearableDTO.class))).thenReturn(savedWearableDTO);
-        mockMvc.perform(post("/user/wearable/create")
+        mockMvc.perform(post("/wearable/create")
                         .contentType("application/json")
                         .content(new ObjectMapper().writeValueAsString(wearable)))
                 .andExpect(status().isCreated());

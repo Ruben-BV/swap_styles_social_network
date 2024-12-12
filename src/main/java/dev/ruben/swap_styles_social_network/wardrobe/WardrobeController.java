@@ -22,7 +22,7 @@ public class WardrobeController {
     @Autowired
     WardrobeService wardrobeService;
 
-    @PostMapping(path = "/user/wardrobe/create")
+    @PostMapping(path = "/wardrobe/create")
     public ResponseEntity<WardrobeDTO> createWardrobe(@RequestBody WardrobeDTO wardrobeDTO){
         return new ResponseEntity<>(wardrobeService.createWardrobe(wardrobeDTO), HttpStatus.CREATED);
     }
@@ -32,17 +32,17 @@ public class WardrobeController {
         return new ResponseEntity<>(wardrobeService.getAllWardrobes(), HttpStatus.OK);
     }
 
-    @GetMapping(path = "/user/wardrobe/getAllFromUser/{userId}")
+    @GetMapping(path = "/wardrobe/getAllFromUser/{userId}")
     public List<WardrobeDTO> getWardorbesByUserId(@PathVariable Long userId) {
         return wardrobeService.getWardrobesByUserId(userId);
     }
     
-    @GetMapping(path = "/user/wardrobe/getById/{wardrobeId}")
+    @GetMapping(path = "/wardrobe/getById/{wardrobeId}")
     public ResponseEntity<Optional<WardrobeDTO>> getWardorbeById(@PathVariable Long wardrobeId) {
         return new ResponseEntity<>(wardrobeService.getWardrobeById(wardrobeId), HttpStatus.OK);
     }
 
-    @PutMapping(path = "/user/wardrobe/updateById/{wardrobeId}")
+    @PutMapping(path = "/wardrobe/updateById/{wardrobeId}")
     public ResponseEntity<WardrobeDTO> updateUserById(@PathVariable Long wardrobeId, @RequestBody WardrobeDTO updatedWardrobe) {
     
         Optional<WardrobeDTO> existingWardrobe = wardrobeService.getWardrobeById(wardrobeId);
@@ -54,7 +54,7 @@ public class WardrobeController {
         return ResponseEntity.ok(wardrobeService.modifyWardrobeById(wardrobeId, updatedWardrobe));
     }
 
-    @DeleteMapping(path = "/user/wardrobe/delete/{wardrobeId}")
+    @DeleteMapping(path = "/wardrobe/delete/{wardrobeId}")
     public ResponseEntity<Void> deleteWardrobeById(@PathVariable Long wardrobeId) {
         wardrobeService.deleteWardrobeById(wardrobeId);
         return ResponseEntity.noContent().build();

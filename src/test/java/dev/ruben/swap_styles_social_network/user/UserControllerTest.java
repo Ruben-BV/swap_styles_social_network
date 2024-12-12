@@ -53,7 +53,7 @@ public class UserControllerTest {
         savedUser.setProfileImage("Profile Image");
 
         when(userService.createUser(any(User.class))).thenReturn(savedUser);
-        mockMvc.perform(post("/user/create")
+        mockMvc.perform(post("/create")
                         .contentType("application/json")
                         .content(new ObjectMapper().writeValueAsString(user)))
                 .andExpect(status().isCreated())
@@ -144,7 +144,7 @@ public class UserControllerTest {
         when(userService.getUserById(2L)).thenReturn(existingUser);
         when(userService.updateUser(any(User.class))).thenReturn(existingUser);
 
-        mockMvc.perform(put("/user/updateUser/{userId}", 2L)
+        mockMvc.perform(put("/updateUser/{userId}", 2L)
                         .contentType("application/json")
                         .content(new ObjectMapper().writeValueAsString(updatedUser)))
                 .andExpect(MockMvcResultMatchers.status().isOk())
@@ -172,7 +172,7 @@ public class UserControllerTest {
         when(userService.getUserById(1L)).thenReturn(null);
 
         
-        mockMvc.perform(put("/user/updateUser/{userId}", 1L)
+        mockMvc.perform(put("/updateUser/{userId}", 1L)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(new ObjectMapper().writeValueAsString(updatedUser)))
                 .andExpect(status().isNotFound());
@@ -184,7 +184,7 @@ public class UserControllerTest {
     @Test
     public void testDeleteUserById() throws Exception {
         doNothing().when(userService).deleteUserById(anyLong());
-        mockMvc.perform(delete("/user/delete/{userId}", 1L))
+        mockMvc.perform(delete("/delete/{userId}", 1L))
                 .andExpect(status().isNoContent());
 
     }

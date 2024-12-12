@@ -39,7 +39,7 @@ public class WardrobeControllerTest {
         
 
         when(wardrobeService.createWardrobe(any(WardrobeDTO.class))).thenReturn(savedWardrobeDTO);
-        mockMvc.perform(post("/user/wardrobe/create")
+        mockMvc.perform(post("/wardrobe/create")
                         .contentType("application/json")
                         .content(new ObjectMapper().writeValueAsString(wardrobe)))
                 .andExpect(status().isCreated());
