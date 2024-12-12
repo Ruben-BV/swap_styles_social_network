@@ -15,8 +15,9 @@ public class WearableService {
     private WearableRepository wearableRepository;
     private WardrobeRepository wardrobeRepository;
 
-    public WearableService(WearableRepository wearableRepository) {
+    public WearableService(WearableRepository wearableRepository, WardrobeRepository wardrobeRepository) {
         this.wearableRepository = wearableRepository;
+        this.wardrobeRepository = wardrobeRepository;
     }
 
     public WearableDTO createWearable(WearableDTO wearableDTO) {
