@@ -54,8 +54,6 @@ public class FriendshipServiceTest {
         
         List<FriendshipDTO> result = friendshipService.getAllFriendships();
         
-        //FriendshipDTO expectedDTO = new FriendshipDTO(mockFriendship);
-        
         assertEquals(1, result.size());
     }
 

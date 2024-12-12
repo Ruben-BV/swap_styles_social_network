@@ -149,11 +149,6 @@ public class UserServiceTest {
         assertEquals("user@mail.com", updatedUser.getEmailAddress());
     }
 
-    // @Test
-    // public void testUpdateUser_EmailAlreadyExists() {
-        
-    // }
-
     @Test
     public void testUpdateUser_SameEmail_Success() {
         User existingUser = new User(1L, "USER", "Lisa Maria", "lisa@mail.com", "Profile Image");
