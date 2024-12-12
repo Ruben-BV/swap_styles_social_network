@@ -16,8 +16,9 @@ public class FriendshipService {
     private FriendshipRepository friendshipRepository;
     private UserRepository userRepository;
 
-    public FriendshipService(FriendshipRepository friendshipRepository) {
+    public FriendshipService(FriendshipRepository friendshipRepository, UserRepository userRepository) {
         this.friendshipRepository = friendshipRepository;
+        this.userRepository = userRepository;
     }
 
     public FriendshipDTO createFriendshipRequest(FriendshipDTO friendshipDTO){
