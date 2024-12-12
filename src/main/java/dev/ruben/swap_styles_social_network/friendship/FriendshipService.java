@@ -35,6 +35,10 @@ public class FriendshipService {
                 throw new IllegalArgumentException("Friendship already exists.");
             }
         }
+
+        if (friendshipDTO.getFriendshipId() != null && !String.valueOf(friendshipDTO.getFriendshipId()).isEmpty()) {
+            throw new IllegalArgumentException("Id cannot be auto assigned.");
+        }
         
         FriendshipStatus friendshipStatus = FriendshipStatus.PENDING;
         if(friendshipDTO.getFriendshipStatus()!= friendshipStatus) {

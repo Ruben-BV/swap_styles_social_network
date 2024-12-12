@@ -21,11 +21,16 @@ public class UserService {
         if (userType.equalsIgnoreCase("ADMIN")) {
             throw new IllegalArgumentException("Incorrect user type.");
         }
-        for (User testUser : users) {
-            if (testUser.getEmailAddress().equalsIgnoreCase(user.getEmailAddress())) {
+        for (User trialUser : users) {
+            if (trialUser.getEmailAddress().equalsIgnoreCase(user.getEmailAddress())) {
                 throw new IllegalArgumentException("Incorrect email address.");
             }
         }
+            
+        if (user.getUserId() != null && !String.valueOf(user.getUserId()).isEmpty()) {
+            throw new IllegalArgumentException("Id cannot be auto assigned.");
+        }
+        
         return userRepository.save(user);
     }
 

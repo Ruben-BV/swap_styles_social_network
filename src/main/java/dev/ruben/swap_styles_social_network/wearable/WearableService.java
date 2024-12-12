@@ -21,6 +21,10 @@ public class WearableService {
     }
 
     public WearableDTO createWearable(WearableDTO wearableDTO) {
+        if (wearableDTO.getWearableId() != null && !String.valueOf(wearableDTO.getWearableId()).isEmpty()) {
+            throw new IllegalArgumentException("Id cannot be auto assigned.");
+        }
+        
         Wardrobe wardrobe = wardrobeRepository.findById(wearableDTO.getWardrobeId()).orElse(null);
         Wearable wearable = new Wearable(wearableDTO.getWearableId(), wardrobe, wearableDTO.getWearableType(), wearableDTO.getWearableName(), wearableDTO.getWearableDescription(), wearableDTO.isVisibility(), wearableDTO.getPhotosList());
             return new WearableDTO(wearableRepository.save(wearable));

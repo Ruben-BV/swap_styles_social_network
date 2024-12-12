@@ -24,6 +24,11 @@ public class WardrobeService {
 
     public WardrobeDTO createWardrobe(WardrobeDTO wardrobeDTO){
         User user = userRepository.findById(wardrobeDTO.getUserId()).orElse(null);
+        
+        if (wardrobeDTO.getWardrobeId() != null && !String.valueOf(wardrobeDTO.getWardrobeId()).isEmpty()) {
+            throw new IllegalArgumentException("Id cannot be auto assigned.");
+        }
+
         if(user!=null){
             Wardrobe wardrobe = new Wardrobe(wardrobeDTO.getWardrobeId(), user, wardrobeDTO.getWardrobeName(), wardrobeDTO.getWearables());
             return new WardrobeDTO(wardrobeRepository.save(wardrobe));
