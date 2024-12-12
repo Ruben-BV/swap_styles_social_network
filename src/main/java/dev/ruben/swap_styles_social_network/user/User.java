@@ -3,6 +3,7 @@ package dev.ruben.swap_styles_social_network.user;
 
 import java.util.List;
 
+import dev.ruben.swap_styles_social_network.friendship.Friendship;
 import dev.ruben.swap_styles_social_network.wardrobe.Wardrobe;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -31,6 +32,14 @@ public class User {
     @OneToMany
     (mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Wardrobe> wardrobes;
+
+    @OneToMany
+    (mappedBy = "user1", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Friendship> friendshipsRequested;
+
+    @OneToMany
+    (mappedBy = "user2", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Friendship> friendshipsAccepted;
     
     
     public User(Long userId, String userType, String userName, String emailAddress, String profileImage) {
