@@ -71,6 +71,10 @@ public class UserService {
 
     @Transactional
     public void deleteUserById(Long userId) {
+        if (getUserById(userId).getUserType().equalsIgnoreCase("ADMIN")) {
+            throw new IllegalArgumentException("ADMIN cannot be deleted, only updated.");
+        }
+        
         userRepository.deleteById(userId);
     }
 }
