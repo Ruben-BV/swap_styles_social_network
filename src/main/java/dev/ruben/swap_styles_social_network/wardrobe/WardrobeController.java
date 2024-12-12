@@ -32,7 +32,7 @@ public class WardrobeController {
         return new ResponseEntity<>(wardrobeService.getAllWardrobes(), HttpStatus.OK);
     }
 
-    @GetMapping(path = "/user/wardrobe/getAllFromByUserId/{userId}")
+    @GetMapping(path = "/user/wardrobe/getAllFromUser/{userId}")
     public List<WardrobeDTO> getWardorbesByUserId(@PathVariable Long userId) {
         return wardrobeService.getWardrobesByUserId(userId);
     }
