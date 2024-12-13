@@ -1,6 +1,7 @@
 package dev.ruben.swap_styles_social_network.friendship;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
 
 import java.util.ArrayList;
@@ -16,6 +17,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import dev.ruben.swap_styles_social_network.user.User;
 import dev.ruben.swap_styles_social_network.user.UserRepository;
+import jakarta.persistence.EntityNotFoundException;
 
 @ExtendWith(MockitoExtension.class)
 public class FriendshipServiceTest {
@@ -44,6 +46,32 @@ public class FriendshipServiceTest {
             friendshipDTO.setFriendshipStatus(FriendshipStatus.ACCEPTED);
     }
 
+    @Test
+    void testRejectFriendshipRequest_Success() {
+        Long friendshipId = 1L;
+        user1 = new User(2L, "USER", "Test User1", "testuser1@email.com", "Profile Image1");
+        user2 = new User(3L, "USER", "Test User2", "testuser2@email.com", "Profile Image2");
+        Friendship friendship = new Friendship(friendshipId, user1, user2, FriendshipStatus.PENDING);
+
+        when(friendshipRepository.findById(friendshipId)).thenReturn(Optional.of(friendship));
+        when(friendshipRepository.save(any(Friendship.class))).thenReturn(friendship);
+
+        FriendshipDTO result = friendshipService.rejectFriendshipRequest(friendshipId);
+
+        assertNotNull(result);
+        assertEquals(FriendshipStatus.REJECTED, result.getFriendshipStatus());
+    }
+
+    @Test
+    void testRejectFriendshipRequest_FriendshipNotFound() {
+
+        Long friendshipId = 1L;
+
+        when(friendshipRepository.findById(friendshipId)).thenReturn(Optional.empty());
+
+        assertThrows(EntityNotFoundException.class, () -> friendshipService.rejectFriendshipRequest(friendshipId), "Friendship not found with ID: " + friendshipId);
+    }
+    
     @Test
     public void testGetAllFriendships() {
         
