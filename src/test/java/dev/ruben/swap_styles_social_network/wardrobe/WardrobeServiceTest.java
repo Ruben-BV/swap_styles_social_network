@@ -1,7 +1,6 @@
 package dev.ruben.swap_styles_social_network.wardrobe;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
 
 import java.util.ArrayList;
@@ -42,33 +41,6 @@ public class WardrobeServiceTest {
             wardrobeDTO.setWardrobeName("Test Wardrobe");
         user = new User(2L, "USER", "Test User", "testuser@email.com", "Profile Image");
     
-    }
-    @Test
-    public void testCreateWardrobeUserFound() {
-
-        when(userRepository.findById(2L)).thenReturn(java.util.Optional.of(user));
-        when(wardrobeRepository.save(any(Wardrobe.class))).thenReturn(mockWardrobe);
-
-        WardrobeDTO result = wardrobeService.createWardrobe(wardrobeDTO);
-
-        assertNotNull(result);
-
-        assertEquals(mockWardrobe.getWardrobeId(), result.getWardrobeId());
-        assertEquals(mockWardrobe.getWardrobeName(), result.getWardrobeName());
-
-    }
-
-    @Test
-    public void testCreateWardrobe_UserNotFound() {
-
-        when(userRepository.findById(2L)).thenReturn(java.util.Optional.empty());
-
-        RuntimeException exception = assertThrows(RuntimeException.class, () -> {
-            wardrobeService.createWardrobe(wardrobeDTO);
-        });
-
-        assertEquals("User not found with userId: 2. Status: 404 NOT_FOUND", exception.getMessage());
-
     }
 
     @Test

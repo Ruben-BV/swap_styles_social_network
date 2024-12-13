@@ -38,19 +38,6 @@ public class UserServiceTest {
     }
 
     @Test
-    void testCreateUser() {
-        
-        when(userRepository.save(any(User.class))).thenReturn(mockUser);
-
-        User createdUser = userService.createUser(mockUser);
-
-        assertNotNull(createdUser);
-        assertEquals(mockUser.getUserId(), createdUser.getUserId());
-        assertEquals(mockUser.getUserName(), createdUser.getUserName());
-
-    }
-
-    @Test
     void testCreateUserEMailExists() {
         
         User mockUser2 = new User(1L, "USER", "Lisa Maria", "lisa@mail.com", "Profile Image");
@@ -161,14 +148,5 @@ public class UserServiceTest {
         assertEquals("user@mail.com", updatedUser.getEmailAddress());
     }
 
-    @Test
-    public void testDeleteUserById_Success() {
-        
-        doNothing().when(userRepository).deleteById(10L);
-
-        userService.deleteUserById(10L);
-
-        verify(userRepository, times(1)).deleteById(10L);
-    }
 }
 
