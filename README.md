@@ -21,6 +21,14 @@ This project is about the development of a Rest API that allows users to add, ed
 
 ## Tech Stack implemented
 
+<p align="center">
+	  <img src="https://github.com/Ruben-BV/swap_styles_social_network/blob/dev/src/main/resources/images/Tech_Stack_01.jpg?raw=true" width="75%"/>
+</p>
+
+<p align="center">
+	  <img src="https://github.com/Ruben-BV/swap_styles_social_network/blob/dev/src/main/resources/images/Tech_Stack_02.jpg?raw=true" width="50%"/>
+</p>
+
 ## Start the aplication
 - In the terminal of your code editor, write:
 ```bash
@@ -33,12 +41,12 @@ mvn spring-boot:run
 http://localhost:8080/h2-console
 ```
 <p align="center">
-	  <img src="" />
+	  <img src="https://github.com/Ruben-BV/swap_styles_social_network/blob/dev/src/main/resources/images/H2_01.jpg" />
 </p>
 
 - Click the butto "Connect"
 <p align="center">
-	  <img src="" />
+	  <img src="https://github.com/Ruben-BV/swap_styles_social_network/blob/dev/src/main/resources/images/H2_02.jpg" />
 </p>
 
 ## Endpoints
