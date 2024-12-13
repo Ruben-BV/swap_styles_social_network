@@ -11,13 +11,39 @@ This project is about the development of a Rest API that allows users to add, ed
 
 ## UML Class Diagramm
 <p align="center">
-	  <img src="https://github.com/Ruben-BV/swap_styles_social_network/blob/dev/src/main/resources/images/UML_Class_Diagramm.jpg?raw=true" width="/>
+	  <img src="https://github.com/Ruben-BV/swap_styles_social_network/blob/dev/src/main/resources/images/UML_Class_Diagramm.jpg?raw=true" />
 </p>
+
 ## ER Diagramm
 <p align="center">
-	  <img src="https://github.com/Ruben-BV/swap_styles_social_network/blob/dev/src/main/resources/images/ER_Diagramm.jpg?raw=true" width="/>
+	  <img src="https://github.com/Ruben-BV/swap_styles_social_network/blob/dev/src/main/resources/images/ER_Diagramm.jpg?raw=true" />
 </p>
+
 ## Tech Stack implemented
+
 ## Start the aplication
-## Connect to the Database
+- In the terminal of your code editor, write:
+```bash
+mvn spring-boot:run
+```
+
+## Connect to the Database (H2)
+- In your webbrowser:
+```bash
+http://localhost:8080/h2-console
+```
+<p align="center">
+	  <img src="" />
+</p>
+
+- Click the butto "Connect"
+<p align="center">
+	  <img src="" />
+</p>
+
 ## Endpoints
+You can find all the endpoint in the files:
+- UserController.java
+- FriendshipController.java
+- Wardrobe.java
+- WearableController.java
