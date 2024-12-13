@@ -10,8 +10,13 @@ This project is about the development of a Rest API that allows users to add, ed
 <br><br>By contacting friends through the application, it will be possible to see the garments that these friends are willing to share with the user.
 
 ## UML Class Diagramm
-
+<p align="center">
+	  <img src="https://github.com/Ruben-BV/swap_styles_social_network/blob/dev/src/main/resources/images/UML_Class_Diagramm.jpg?raw=true" width="/>
+</p>
 ## ER Diagramm
+<p align="center">
+	  <img src="https://github.com/Ruben-BV/swap_styles_social_network/blob/dev/src/main/resources/images/ER_Diagramm.jpg?raw=true" width="/>
+</p>
 ## Tech Stack implemented
 ## Start the aplication
 ## Connect to the Database
