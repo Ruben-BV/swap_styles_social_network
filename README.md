@@ -1,7 +1,7 @@
 # SwapStyles
 
 <p align="center">
-	  <img src="https://github.com/Ruben-BV/swap_styles_social_network/blob/dev/src/main/resources/images/Logo/Logo_Swap_Styles.jpeg" width="25%"/>
+	  <img src="https://github.com/Ruben-BV/swap_styles_social_network/blob/main/src/main/resources/images/Logo/Logo_Swap_Styles.jpeg" width="25%"/>
 </p>
 
 ## Description
@@ -11,22 +11,22 @@ This project is about the development of a Rest API that allows users to add, ed
 
 ## UML Class Diagramm
 <p align="center">
-	  <img src="https://github.com/Ruben-BV/swap_styles_social_network/blob/dev/src/main/resources/images/UML_Class_Diagramm.jpg?raw=true" />
+	  <img src="https://github.com/Ruben-BV/swap_styles_social_network/blob/main/src/main/resources/images/UML_Class_Diagramm.jpg?raw=true" />
 </p>
 
 ## ER Diagramm
 <p align="center">
-	  <img src="https://github.com/Ruben-BV/swap_styles_social_network/blob/dev/src/main/resources/images/ER_Diagramm.jpg?raw=true" />
+	  <img src="https://github.com/Ruben-BV/swap_styles_social_network/blob/main/src/main/resources/images/ER_Diagramm.jpg?raw=true" />
 </p>
 
 ## Tech Stack implemented
 
 <p align="center">
-	  <img src="https://github.com/Ruben-BV/swap_styles_social_network/blob/dev/src/main/resources/images/Tech_Stack_01.jpg?raw=true" width="75%"/>
+	  <img src="https://github.com/Ruben-BV/swap_styles_social_network/blob/main/src/main/resources/images/Tech_Stack_01.jpg?raw=true" width="75%"/>
 </p>
 
 <p align="center">
-	  <img src="https://github.com/Ruben-BV/swap_styles_social_network/blob/dev/src/main/resources/images/Tech_Stack_02.jpg?raw=true" width="50%"/>
+	  <img src="https://github.com/Ruben-BV/swap_styles_social_network/blob/main/src/main/resources/images/Tech_Stack_02.jpg?raw=true" width="50%"/>
 </p>
 
 ## Start the aplication
@@ -41,12 +41,12 @@ mvn spring-boot:run
 http://localhost:8080/h2-console
 ```
 <p align="center">
-	  <img src="https://github.com/Ruben-BV/swap_styles_social_network/blob/dev/src/main/resources/images/H2_01.jpg" />
+	  <img src="https://github.com/Ruben-BV/swap_styles_social_network/blob/main/src/main/resources/images/H2_01.jpg" />
 </p>
 
 - Click the butto "Connect"
 <p align="center">
-	  <img src="https://github.com/Ruben-BV/swap_styles_social_network/blob/dev/src/main/resources/images/H2_02.jpg" />
+	  <img src="https://github.com/Ruben-BV/swap_styles_social_network/blob/main/src/main/resources/images/H2_02.jpg" />
 </p>
 
 ## Endpoints
