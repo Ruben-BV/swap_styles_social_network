@@ -2,19 +2,19 @@ package dev.ruben.swap_styles_social_network.wardrobe;
 
 import java.util.List;
 
-import dev.ruben.swap_styles_social_network.wearable.Wearable;
+import dev.ruben.swap_styles_social_network.clothingItem.ClothingItem;
 
 public class WardrobeDTO {
     private Long wardrobeId;
     private Long userId;
     private String wardrobeName;
-    private List<Wearable> wearables;
+    private List<ClothingItem> clothingItems;
 
     public WardrobeDTO(Wardrobe wardrobe){
         this.wardrobeId = wardrobe.getWardrobeId();
         this.userId = wardrobe.getUser().getUserId();
         this.wardrobeName = wardrobe.getWardrobeName();
-        this.wearables = wardrobe.getWearables();
+        this.clothingItems = wardrobe.getClothingItems();
     }
     
     public WardrobeDTO() {
@@ -44,11 +44,11 @@ public class WardrobeDTO {
         this.wardrobeName = wardrobeName;
     }
 
-    public List<Wearable> getWearables() {
-        return wearables;
+    public List<ClothingItem> getClothingItems() {
+        return clothingItems;
     }
 
-    public void setWearables(List<Wearable> wearables) {
-        this.wearables = wearables;
+    public void setClothingItems(List<ClothingItem> clothingItems) {
+        this.clothingItems = clothingItems;
     }
 }

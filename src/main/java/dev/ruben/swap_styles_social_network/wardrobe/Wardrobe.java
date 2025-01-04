@@ -5,7 +5,7 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import dev.ruben.swap_styles_social_network.user.User;
-import dev.ruben.swap_styles_social_network.wearable.Wearable;
+import dev.ruben.swap_styles_social_network.clothingItem.ClothingItem;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -41,13 +41,13 @@ public class Wardrobe {
     @OneToMany
     (mappedBy = "wardrobe", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JsonManagedReference
-    private List<Wearable> wearables;
+    private List<ClothingItem> clothingItems;
 
-    public Wardrobe(Long wardrobeId, User user, String wardrobeName, List<Wearable> wearables) {
+    public Wardrobe(Long wardrobeId, User user, String wardrobeName, List<ClothingItem> clothingItems) {
         this.wardrobeId = wardrobeId;
         this.user = user;
         this.wardrobeName = wardrobeName;
-        this.wearables = wearables;
+        this.clothingItems = clothingItems;
     }
 
     public Wardrobe() {
@@ -78,12 +78,12 @@ public class Wardrobe {
     }
 
 
-    public List<Wearable> getWearables() {
-        return wearables;
+    public List<ClothingItem> getClothingItems() {
+        return clothingItems;
     }
 
-    public void setWearables(List<Wearable> wearables) {
-        this.wearables = wearables;
+    public void setClothingItems(List<ClothingItem> clothingItems) {
+        this.clothingItems = clothingItems;
     }
 
     
