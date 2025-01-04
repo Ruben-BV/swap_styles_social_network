@@ -30,7 +30,7 @@ public class WardrobeService {
         }
 
         if(user!=null){
-            Wardrobe wardrobe = new Wardrobe(wardrobeDTO.getWardrobeId(), user, wardrobeDTO.getWardrobeName(), wardrobeDTO.getWearables());
+            Wardrobe wardrobe = new Wardrobe(wardrobeDTO.getWardrobeId(), user, wardrobeDTO.getWardrobeName(), wardrobeDTO.getClothingItems());
             return new WardrobeDTO(wardrobeRepository.save(wardrobe));
         }else{
             throw new RuntimeException("User not found with userId: " + wardrobeDTO.getUserId() + ". Status: " + HttpStatus.NOT_FOUND);

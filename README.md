@@ -54,4 +54,4 @@ You can find all the endpoint in the files:
 - UserController.java
 - FriendshipController.java
 - Wardrobe.java
-- WearableController.java
+- ClothingItemController.java

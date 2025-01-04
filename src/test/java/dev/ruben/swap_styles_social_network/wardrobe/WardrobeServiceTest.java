@@ -14,9 +14,9 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import dev.ruben.swap_styles_social_network.clothingItem.ClothingItem;
 import dev.ruben.swap_styles_social_network.user.User;
 import dev.ruben.swap_styles_social_network.user.UserRepository;
-import dev.ruben.swap_styles_social_network.wearable.Wearable;
 
 @ExtendWith(MockitoExtension.class)
 public class WardrobeServiceTest {
@@ -34,7 +34,7 @@ public class WardrobeServiceTest {
     
     @BeforeEach
     void setUp() {
-        mockWardrobe = new Wardrobe(1L, new User(2L, "USER", "Test User", "testuser@email.com", "Profile Image"), "My Wardrobe", new ArrayList<Wearable>());
+        mockWardrobe = new Wardrobe(1L, new User(2L, "USER", "Test User", "testuser@email.com", "Profile Image"), "My Wardrobe", new ArrayList<ClothingItem>());
         wardrobeDTO = new WardrobeDTO();
             wardrobeDTO.setUserId(2L);
             wardrobeDTO.setWardrobeId(1L);
