@@ -8,8 +8,8 @@ import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import dev.ruben.swap_styles_social_network.clothingItem.ClothingItem;
 import dev.ruben.swap_styles_social_network.user.User;
-import dev.ruben.swap_styles_social_network.wearable.Wearable;
 
 public class WardrobeTest {
     private Wardrobe testWardrobe;
@@ -26,15 +26,15 @@ public class WardrobeTest {
         Long wardrobeId = 1L;
         User testUser = new User(2L, "USER", "Test User", "testuser@email.com", "Profile Image");
         String wardrobeName = "My Wardrobe";
-        List<Wearable> wearables = new ArrayList<Wearable>();
+        List<ClothingItem> clothingItems = new ArrayList<ClothingItem>();
 
-        Wardrobe testWardrobe = new Wardrobe(wardrobeId, testUser, wardrobeName, wearables);
+        Wardrobe testWardrobe = new Wardrobe(wardrobeId, testUser, wardrobeName, clothingItems);
 
         assertNotNull(testWardrobe);
         assertEquals(wardrobeId, testWardrobe.getWardrobeId());
         assertEquals(testUser, testWardrobe.getUser());
         assertEquals(wardrobeName, testWardrobe.getWardrobeName());
-        assertEquals(wearables, testWardrobe.getWearables());
+        assertEquals(clothingItems, testWardrobe.getClothingItems());
     }
 
     @Test
@@ -63,11 +63,11 @@ public class WardrobeTest {
     }
 
     @Test
-    void testSetAndGetWearables() {
-        List<Wearable> wearables = new ArrayList<Wearable>();
-        testWardrobe.setWearables(wearables);
-        List<Wearable> result=testWardrobe.getWearables();
+    void testSetAndGetClothingItems() {
+        List<ClothingItem> clothingItems = new ArrayList<ClothingItem>();
+        testWardrobe.setClothingItems(clothingItems);
+        List<ClothingItem> result=testWardrobe.getClothingItems();
 
-        assertEquals(wearables, result);
+        assertEquals(clothingItems, result);
     }
 }

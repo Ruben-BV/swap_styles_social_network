@@ -36,7 +36,7 @@ public class FriendshipDTOTest {
     }
 
     @Test
-    void testSetAndGetWearableId() {
+    void testSetAndGetClothingItemId() {
         testFriendshipDTO.setFriendshipId(3L);
         Long result=testFriendshipDTO.getFriendshipId();
 

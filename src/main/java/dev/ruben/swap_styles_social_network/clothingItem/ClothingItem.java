@@ -1,4 +1,4 @@
-package dev.ruben.swap_styles_social_network.wearable;
+package dev.ruben.swap_styles_social_network.clothingItem;
 
 import java.util.List;
 
@@ -16,18 +16,18 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "wearables")
-public class Wearable {
+@Table(name = "clothingItems")
+public class ClothingItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long wearableId;
+    private Long clothingItemId;
     @Column(nullable = false)
-    private WearableType wearableType;
+    private ClothingItemType clothingItemType;
     
     @Column(nullable = false)
-    private String wearableName;
+    private String clothingItemName;
     @Column(nullable = false)
-    private String wearableDescription;
+    private String clothingItemDescription;
     @Column(nullable = false)
     private boolean visibility;
     @Column(nullable = false)
@@ -43,61 +43,61 @@ public class Wearable {
 
 
 
-    public Wearable(Long wearableId, Wardrobe wardrobe, WearableType wearableType, String wearableName, String wearableDescription,
+    public ClothingItem(Long clothingItemId, Wardrobe wardrobe, ClothingItemType clothingItemType, String clothingItemName, String clothingItemDescription,
             boolean visibility, List<String> photosList) {
-        this.wearableId = wearableId;
+        this.clothingItemId = clothingItemId;
         this.wardrobe = wardrobe;
-        this.wearableType = wearableType;
-        this.wearableName = wearableName;
-        this.wearableDescription = wearableDescription;
+        this.clothingItemType = clothingItemType;
+        this.clothingItemName = clothingItemName;
+        this.clothingItemDescription = clothingItemDescription;
         this.visibility = visibility;
         this.photosList = photosList;
     }
 
-    public Wearable() {
+    public ClothingItem() {
     }
 
-    public WearableDTO toDTO() {
-        return new WearableDTO(this);
+    public ClothingItemDTO toDTO() {
+        return new ClothingItemDTO(this);
     }
 
-    public Long getWearableId() {
-        return wearableId;
-    }
-
-
-    public void setWearableId(Long wearableId) {
-        this.wearableId = wearableId;
+    public Long getClothingItemId() {
+        return clothingItemId;
     }
 
 
-    public WearableType getWearableType() {
-        return wearableType;
+    public void setClothingItemId(Long clothingItemId) {
+        this.clothingItemId = clothingItemId;
     }
 
 
-    public void setWearableType(WearableType wearableType) {
-        this.wearableType = wearableType;
+    public ClothingItemType getClothingItemType() {
+        return clothingItemType;
     }
 
 
-    public String getWearableName() {
-        return wearableName;
+    public void setClothingItemType(ClothingItemType clothingItemType) {
+        this.clothingItemType = clothingItemType;
     }
 
 
-    public void setWearableName(String wearableName) {
-        this.wearableName = wearableName;
+    public String getClothingItemName() {
+        return clothingItemName;
     }
 
 
-    public String getWearableDescription() {
-        return wearableDescription;
+    public void setClothingItemName(String clothingItemName) {
+        this.clothingItemName = clothingItemName;
     }
 
 
-    public void setWearableDescription(String wearableDescription) {
-        this.wearableDescription = wearableDescription;
+    public String getClothingItemDescription() {
+        return clothingItemDescription;
+    }
+
+
+    public void setClothingItemDescription(String clothingItemDescription) {
+        this.clothingItemDescription = clothingItemDescription;
     }
 
 
@@ -133,7 +133,7 @@ public class Wearable {
     
 }
 
-enum WearableType {
+enum ClothingItemType {
     ACCESSORIES (0),
     FOOTWEAR (1),
     COAT (2),
@@ -146,7 +146,7 @@ enum WearableType {
     COSTUME (9);
     private int value;
 
-    WearableType(int value) {
+    ClothingItemType(int value) {
         this.value = value;
     }
 
